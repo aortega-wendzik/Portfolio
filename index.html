@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Angela Beadenkopf's Home Page</title>
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+    
+    <body>
+        <div class="hamburger" onclick="this.classList.toggle('active')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    
+        <div class="nav-menu">
+            <a href="#">Home</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Contact</a>
+        </div>
+        <!--Source:canva.com-->
+        <div class="video">
+        <video width=100% height=100% autoplay muted>
+            <source src="./assets/images/Untitled design.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <!-- Source of how to loop a video:https://stackoverflow.com/questions/3455229/control-html5-video-player-loop-with-javascript-->
+          <script>
+            var vid = document.getElementById("myVideo");
+            vid.addEventListener('ended', function() {
+                this.currentTime = 0;
+                this.play();
+            }, false);
+            </script>
+        </div>
+        
+    </body>
+    </html>  
