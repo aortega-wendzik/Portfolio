@@ -4,41 +4,93 @@
 <head>
     <meta charset="UTF-8" />
     <title>Angela Beadenkopf's Portfolio</title>
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/style2.css">
+  
+    <meta name="slide-in" content="width=device-width, initial-scale=1">
+    <style>
+      .slide-in {
+        animation: slide-in 2s forwards;
+      }
+  
+      @keyframes slide-in {
+        from {
+    
+          margin-left: 100%;
+          width: 50%;
+          justify-content: center;
+        }
+        to {
+          
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
 </head>
     
     <body>
-        
-        <header>
-            <h1 class="title1">web developer portfolio</h1>
-            <h2 class="title2">Check out my latest web software development portfolio projects.</h2>
-            
-        </header>
+      <header>
+        <div class="hamburger" onclick="this.classList.toggle('active')">
+          <span></span>
+          <span></span>
+          <span></span>
+          
+      </div>
+  
+      <div class="nav-menu">
+          <a href="index.html">Home</a>
+          <a href="#">Portfolio</a>
+          <a href="#">Contact</a>
+      </div>
+      <div
+      <h1 class="slide-in">web developer portfolio</h1>
+    </div>
+    <div
+      <h2 class="title2">Check out my latest web software development portfolio projects.</h2>
+  </div>
+  </div>
 
-        
-        <main> 
-            <div class="hamburger" onclick="this.classList.toggle('active')">
-            <span></span>
-            <span></span>
-            <span></span>
+      </header>
+      <!--Source:https://www.youtube.com/watch?v=ATeWQlY3N04-->
+      <section>
+        <ul>
+         <li class="list active" data-filter="all">SHOW ALL</li>
+         <li class="list" data-filter="front-end">FRONT-END</li>
+         <li class="list" data-filter="GitHub">GITHUB</li>
+         <li class="list" data-filter="comingsoon">COMING SOON</li>
+        </ul>
+        <div class="product">
+          <div class="itemBox" data-item="front-end"><a href=https://aortega-wendzik.github.io/Horiseon-Accessibility-SEO/><img src="./assets/images/webpage1.png"></a></div>
+          <div class="itemBox" data-item="GitHub"><a href="https://github.com/aortega-wendzik"><img src="./assets/images/Githubprofile.png" alt="profile page with profile picture of web designer"></a></div>
+          <div class="itemBox" data-item="comingsoon"><img src="./assets/images/Yellow Modern Coming Soon Instagram Post.png" alt="yellow coming soon sign"></div>
         </div>
-    
-        <div class="nav-menu">
-            <a href="#">Home</a>
-            <a href="#">Portfolio</a>
-            <a href="#">Contact</a>
+     
+      </section>
+      <script>
+        let list = document.querySelectorAll('.list');
+        let itemBox = document.querySelectorAll('.itemBox');
+
+        for(let i = 0; i<list.length; i++){
+          list[i].addEventListener('click', function(){
+            for(let j = 0; j<list.length; j++){
+              list[j].classList.remove('active');
+            }
+            this.classList.add('active');
+            let dataFilter = this.getAttribute('data-filter');
             
-            <section>
-              <div class="Horiseon">
-                    <section class="card">
+            for( let k = 0; k<itemBox.length; k++){
+              itemBox[k].classList.add('active');
+              itemBox[k].classList.add('hide');
 
-        <a href="https://aortega-wendzik.github.io/Horiseon-Accessibility-SEO/">
-            <img src="./assets/images/webpage1.png" alt="clickable thumbnail image of employees at a conference table">
-                 </img>
-         </a>
-                    </section>
-              </div>
-            </section>
-        </main>
-
-       
+              if(itemBox[k].getAttribute('data-item') == dataFilter ||
+              dataFilter == "all"){
+                itemBox[k].classList.remove('hide');
+                itemBox[k].classList.add('active');
+              }
+            }
+          })
+          }
+      </script>
+        
+    </body>
+</html>
